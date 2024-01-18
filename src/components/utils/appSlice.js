@@ -7,10 +7,13 @@ const navbarBtnSlice = createSlice({
     },
     reducers: {
         toggleMenu:(state)=>{
-            state.ismenuOpen =!state.ismenuOpen
-        }
-    }
+            state.ismenuOpen =!state.ismenuOpen;
+        },
+        closeMenu:(state)=>{
+            state.ismenuOpen =false;
+        },
+    },
 });
 
 export default navbarBtnSlice.reducer;
-export const {toggleMenu} = navbarBtnSlice.actions;
+export const {toggleMenu ,closeMenu} = navbarBtnSlice.actions;

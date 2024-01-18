@@ -1,22 +1,29 @@
 import {useDispatch } from "react-redux";
-import { toggleMenu } from "./utils/appSlice";
+import { closeMenu } from "./utils/appSlice";
 import { useEffect } from "react";
-import { useParams } from "react-router";
+import { useLocation } from "react-router";
+
+
 
 const WatchPage = () => {
-    const {id} = useParams()
-    console.log("🚀 ~ WatchPage ~ id:", id)
+    let { state } = useLocation();
+    console.log("🚀 ~ WatchPage ~ state:", state)
+    const dispatch = useDispatch()
 
-    // const dispatch = useDispatch()
-
-    // useEffect(()=>{
-    //     dispatch(toggleMenu());
-    // },[])
+    useEffect(()=>{
+        Menu: dispatch(closeMenu())
+    },[])
     
-
     return (
-        <div className="w-full">
-            <iframe title="youtube" className="rounded-xl w-3/4 h-96 aspect-[4/3] m-5" src={"https://www.youtube.com/watch?v="+id}></iframe>
+        <div className="w-full m-10 items-center">
+            <iframe className="rounded-xl" 
+            width="700" height="400" 
+            src={`https://www.youtube.com/embed/`+state.id}
+            // src={`https://www.youtube.com/watch?v=`+state.id}
+            title="YouTube video player" 
+            frameBorder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowFullScreen></iframe>
         </div>
     )
 };

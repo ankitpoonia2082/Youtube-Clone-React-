@@ -10,7 +10,6 @@ import { toggleMenu } from "./utils/appSlice";
  *      User Logo
  */
 
-
 const Head = () => {
 
     const dispatch = useDispatch()

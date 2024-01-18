@@ -3,7 +3,7 @@ import { YOUTUBE_VIDEOS_API } from '../utils/const'
 
 const useVideoData = () => {
     const [videos, setVideos] = useState(null);
-    console.log("🚀 ~ useVideoData ~ videos:", videos)
+    // console.log("🚀 ~ useVideoData ~ videos:", videos)
 
     useEffect(() => { youtubeData()}, [] );
 
